@@ -1,0 +1,4 @@
+.vscode/launch.json
+build/
+pkg/aluno/links.json
+cmd/main.zip
