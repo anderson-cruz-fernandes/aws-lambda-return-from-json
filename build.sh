@@ -1,0 +1,1 @@
+/home/runner/aws-lambda-return-from-json/cmd/build.sh
