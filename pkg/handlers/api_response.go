@@ -6,11 +6,14 @@ import (
 	"github.com/aws/aws-lambda-go/events"
 )
 
-func apiResponse(status int, body interface{}) (*events.APIGatewayProxyResponse, error) {
-	resp := events.APIGatewayProxyResponse{Headers: map[string]string{"Content-Type": "application/json"}}
-	resp.StatusCode = status
-
+func urlResponse(status int, body interface{}) (*events.LambdaFunctionURLResponse, error) {
 	stringBody, _ := json.Marshal(body)
-	resp.Body = string(stringBody)
+  resp := events.LambdaFunctionURLResponse{
+		StatusCode:      status,
+		Headers:         map[string]string{"Content-Type": "application/json"},
+		Body:            string(stringBody),
+		IsBase64Encoded: false,
+		Cookies:         []string{},
+	}
 	return &resp, nil
 }

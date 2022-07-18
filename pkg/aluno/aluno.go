@@ -34,7 +34,6 @@ func BuscaAluno(acesso string) (*string, error) {
 	hash := "0"
 	for i := range alunos {
 		if alunos[i].Pedido == acesso {
-			//fmt.Println(alunos[i].Hash)
 			hash = alunos[i].Hash
 			break
 		}
@@ -45,3 +44,5 @@ func BuscaAluno(acesso string) (*string, error) {
 	}
 	return &hash, nil
 }
+//#############################
+//https://stackoverflow.com/a/38654444 #for loop

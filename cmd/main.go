@@ -11,15 +11,15 @@ func main() {
 	lambda.Start(handler)
 }
 
-func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	switch req.HTTPMethod {
-	case "GET":
-		return handlers.BuscaAluno(req)
-	default:
-		return handlers.UnhandledMethod()
-	}
+func handler(req events.LambdaFunctionURLRequest) (*events.LambdaFunctionURLResponse, error) {
+  switch req.RequestContext.HTTP.Method {
+    case "GET":    
+      return handlers.BuscaAluno(req)
+    default:
+		  return handlers.UnhandledMethod()
+  }
 }
 
 //#############################
-//https://stackoverflow.com/a/38654444
+//https://stackoverflow.com/a/72796824 #AWS Lambda Function URL
 //http://www.inanzzz.com/index.php/post/1rwm/including-and-reading-static-files-with-embed-directive-at-compile-time-in-golang

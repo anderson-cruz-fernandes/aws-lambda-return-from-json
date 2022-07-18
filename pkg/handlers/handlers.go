@@ -17,21 +17,21 @@ type ErrorBody struct {
 	ErrorMsg *string `json:"error,omitempty"`
 }
 
-func BuscaAluno(req events.APIGatewayProxyRequest) (
-	*events.APIGatewayProxyResponse, error,
+func BuscaAluno(req events.LambdaFunctionURLRequest) (
+	*events.LambdaFunctionURLResponse, error,
 ) {
 
 	acesso := req.QueryStringParameters["acesso"]
 	if len(acesso) > 0 {
 		result, err := aluno.BuscaAluno(acesso)
 		if err != nil {
-			return apiResponse(http.StatusNotFound, ErrorBody{aws.String(err.Error())})
+			return urlResponse(http.StatusNotFound, ErrorBody{aws.String(err.Error())})
 		}
-		return apiResponse(http.StatusOK, result)
+		return urlResponse(http.StatusOK, result)
 	}
-	return apiResponse(http.StatusBadRequest, ErrorInvalidAccessData)
+	return urlResponse(http.StatusBadRequest, ErrorInvalidAccessData)
 }
 
-func UnhandledMethod() (*events.APIGatewayProxyResponse, error) {
-	return apiResponse(http.StatusMethodNotAllowed, ErrorMethodNotAllowed)
+func UnhandledMethod() (*events.LambdaFunctionURLResponse, error) {
+	return urlResponse(http.StatusMethodNotAllowed, ErrorMethodNotAllowed)
 }
