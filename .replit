@@ -1,4 +1,4 @@
-run = "go run cmd/main.go"
+run = "~/aws-lambda-return-from-json/cmd/build.sh"
 
 [languages.go]
 pattern = "**/*.go"

@@ -1,6 +1,7 @@
 { pkgs }: {
     deps = [
-        pkgs.zip
+        pkgs.vim
+pkgs.zip
 pkgs.go_1_17
         pkgs.gopls
     ];
