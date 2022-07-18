@@ -12,12 +12,12 @@ func main() {
 }
 
 func handler(req events.LambdaFunctionURLRequest) (*events.LambdaFunctionURLResponse, error) {
-  switch req.RequestContext.HTTP.Method {
-    case "GET":    
-      return handlers.BuscaAluno(req)
-    default:
-		  return handlers.UnhandledMethod()
-  }
+	switch req.RequestContext.HTTP.Method {
+	case "GET":
+		return handlers.BuscaAluno(req)
+	default:
+		return handlers.UnhandledMethod()
+	}
 }
 
 //#############################

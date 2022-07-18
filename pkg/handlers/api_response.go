@@ -8,7 +8,7 @@ import (
 
 func urlResponse(status int, body interface{}) (*events.LambdaFunctionURLResponse, error) {
 	stringBody, _ := json.Marshal(body)
-  resp := events.LambdaFunctionURLResponse{
+	resp := events.LambdaFunctionURLResponse{
 		StatusCode:      status,
 		Headers:         map[string]string{"Content-Type": "application/json"},
 		Body:            string(stringBody),

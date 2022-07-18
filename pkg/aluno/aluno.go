@@ -44,5 +44,6 @@ func BuscaAluno(acesso string) (*string, error) {
 	}
 	return &hash, nil
 }
+
 //#############################
 //https://stackoverflow.com/a/38654444 #for loop
